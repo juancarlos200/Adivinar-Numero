@@ -11,14 +11,28 @@ class Main{
             Scanner scanner = new Scanner(System.in);
 
             System.out.println("Introduce un numero del 1 y 10");
+            
             while (adivinado == false){
-                numeroIntroducido = scanner.nextInt();
-                if(numeroIntroducido == numeroAdivinar){
-                    System.out.println("Adivinaste el numero");
-                    adivinado = true;
-                }else{
-                    System.out.println("No adivinaste, intenta de nuevo");
+
+                try{
+                       numeroIntroducido = scanner.nextInt();
+                        if(numeroIntroducido == numeroAdivinar){
+                            System.out.println("Adivinaste el numero");
+                            adivinado = true;
+                        }else{
+                            System.out.println("No adivinaste, intenta de nuevo");
+                        }
+
                 }
+
+                catch(IllegalArgumentException e){
+                    System.out.println("Porfavor ingresa un numero del 1 al 10.");
+                }
+                catch(Exception e){
+                    System.out.println("Porfavor ingresa un numero valido.");
+                    scanner.next();
+                }
+             
             }
     }
 }
